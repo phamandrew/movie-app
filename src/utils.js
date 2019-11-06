@@ -1,30 +1,29 @@
-// import Axios from 'axios';
+import Axios from 'axios';
 
-// const makeRequestCreator = () => {
-//     let token;
+const create_request = () => {
+    let token;
 
-//     return (query) => {
-//         // Check if we made a request
-//         if(token){
-//             // Cancel the previous request before making a new request
-//             token.cancel()
-//         }
-//         // Create a new CancelToken
-//         token = Axios.CancelToken.source()
-//         try{
-//             const res = await Axios(query, {cancelToken: cancel.token})
-//             const result = data.data
-//             return result;
-//         } catch(error) {
-//             if(Axios.isCancel(error)) {
-//                 // Handle if request was cancelled
-//                 console.log('Request canceled', error.message);
-//             } else {
-//                 // Handle usual errors
-//                 console.log('Something went wrong: ', error.message)
-//             }
-//         }
-//     }
-// }
+    return (query) => {
+        // Check if we made a request
+        if (token) {
+            // Cancel the previously made request before new request is made
+            token.cancel()
+        }
+        // Create Cancel Token
+        token = Axios.CancelToken.source()
+        
+        try {
 
-// export const search = makeRequestCreator()
+            await Axios(
+                query,
+                {
+                    cancelToken: cancel.token
+                }
+            )
+            .then((res) => )
+
+
+            const result = res.data.results;
+        }
+    }
+}
