@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-
-
-
-
-const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
+import { moviedb_api_key } from './App';
 
 class Homepage extends Component {
     constructor() {

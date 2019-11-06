@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import moviedb_api_key from './Homepage'
+import { moviedb_api_key } from './App';
 
 // const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
 
