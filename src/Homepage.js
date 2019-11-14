@@ -2,43 +2,55 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { moviedb_api_key } from './App';
+import { search } from './utils';
 
 class Homepage extends Component {
     constructor() {
         super();
         this.state = {
             movies: [],
+            loading: false,
             value: ''
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.searchRequest = this.searchRequest.bind(this)
     }
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.setState ({
-            value: ''
-        })
-        this.searchRequest();
-    };
+   
 
-    handleChange = (e) => {
+    handleChange = async e => {
         this.setState({value: e.target.value});
+        this.searchRequest(e.target.value);
     }
     
-    searchRequest() {
-        Axios({
-            url: 'https://api.themoviedb.org/3/search/movie',
-            method: 'GET',
-            params: {
-                api_key: moviedb_api_key,
-                query: this.state.value
-            }
+    searchRequest = async val =>  {
+        this.setState({
+            loading: true
         })
-        .then((res) => {
-            this.setState({
-                movies: res.data.results
-            });
+
+         
+        // const res = await Axios({
+        //     url: 'https://api.themoviedb.org/3/search/movie',
+        //     method: 'GET',
+        //     params: {
+        //         api_key: moviedb_api_key,
+        //         query: val
+        //     }
+        // });
+
+        const res = await search(`https://api.themoviedb.org/3/search/movie?query=${val}&api_key=${moviedb_api_key}`)
+
+        
+        // .then((res) => {
+        //     this.setState({
+        //         movies: res.data.results,
+        //         loading: false
+        //     });
+        // });
+
+
+        this.setState({ 
+            movies: res,
+            loading: false 
         });
     }
 
@@ -47,15 +59,16 @@ class Homepage extends Component {
     render() {
         return (
             <section className="movie-container">
-                <form onSubmit={this.handleSubmit}>
+                
                     <input
                         value={this.state.value}
                         onChange={this.handleChange}
                         placeholder="Type something to search"
                     />
-                    <input type="submit" value="Submit" />
-                </form>
-                {this.state.movies.map((movie) => {
+
+
+                
+                {/* {this.state.movies.list((movie) => {
                     return (
                         <div className="movie" key={movie.id}>
                             <Link to={`/movie/${movie.id}`}>
@@ -64,7 +77,7 @@ class Homepage extends Component {
                             </Link>
                         </div>
                     )
-                })}
+                })}  */}
             </section>
         )
     }
