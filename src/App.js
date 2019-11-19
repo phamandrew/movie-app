@@ -7,7 +7,8 @@ import {
     Route
 } from 'react-router-dom';
 
-export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
+// export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
+export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
 
 
 class App extends Component {

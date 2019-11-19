@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { moviedb_api_key } from './App';
 import { search } from './utils';
+import { MovieCreator } from './Movies';
 
 class Homepage extends Component {
     constructor() {
@@ -14,6 +15,7 @@ class Homepage extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.searchRequest = this.searchRequest.bind(this)
+        this.renderResults = this.renderResults.bind(this)
     }
    
 
@@ -28,30 +30,25 @@ class Homepage extends Component {
         })
 
          
-        // const res = await Axios({
-        //     url: 'https://api.themoviedb.org/3/search/movie',
-        //     method: 'GET',
-        //     params: {
-        //         api_key: moviedb_api_key,
-        //         query: val
-        //     }
-        // });
+      
 
         const res = await search(`https://api.themoviedb.org/3/search/movie?query=${val}&api_key=${moviedb_api_key}`)
-
-        
-        // .then((res) => {
-        //     this.setState({
-        //         movies: res.data.results,
-        //         loading: false
-        //     });
-        // });
 
 
         this.setState({ 
             movies: res,
             loading: false 
         });
+    }
+
+    renderResults = () => {
+        let movies = <h1>No Movies : (</h1>;
+        if (this.state.movies) {
+            console.log("RENDER RESULTS");
+            // movies = <MovieRender movieState={this.state.movies} />
+        }
+
+        return movies;
     }
 
         
@@ -68,7 +65,7 @@ class Homepage extends Component {
 
 
                 
-                {/* {this.state.movies.list((movie) => {
+                {/* {this.state.movies.map((movie) => {
                     return (
                         <div className="movie" key={movie.id}>
                             <Link to={`/movie/${movie.id}`}>
@@ -78,6 +75,12 @@ class Homepage extends Component {
                         </div>
                     )
                 })}  */}
+                {
+                    if (this.state.movies.length > 0) {
+                        <MovieCreator movieState={this.state.movies} />
+                    }
+                }
+
             </section>
         )
     }
