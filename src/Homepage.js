@@ -41,11 +41,11 @@ class Homepage extends Component {
         });
     }
 
-    renderResults = () => {
+    get renderResults = () => {
         let movies = <h1>No Movies : (</h1>;
         if (this.state.movies) {
-            console.log("RENDER RESULTS");
-            // movies = <MovieRender movieState={this.state.movies} />
+        //    movies =  <MovieCreator movieState={this.state.movies} />
+
         }
 
         return movies;
@@ -75,13 +75,9 @@ class Homepage extends Component {
                         </div>
                     )
                 })}  */}
-                {
-                    if (this.state.movies.length > 0) {
-                        <MovieCreator movieState={this.state.movies} />
-                    }
-                }
+                
 
-            </section>
+                {this.renderResults()}
         )
     }
 }
