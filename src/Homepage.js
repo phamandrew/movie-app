@@ -15,6 +15,7 @@ class Homepage extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.searchRequest = this.searchRequest.bind(this)
+
     }
    
 
@@ -40,13 +41,13 @@ class Homepage extends Component {
         });
     }
 
-    renderResults = () => {
-        let movies = <h1>No Movies : (</h1>;
+    get renderResults () {
+        let movies;
         if (this.state.movies) {
             movies = <MovieCreator movieState={this.state.movies} />
         }
-
-        return movies;
+        //
+        return movies
     }
 
         
@@ -62,7 +63,7 @@ class Homepage extends Component {
                     />
 
 
-                {this.renderResults()};
+                {this.renderResults}
 
             </section>
         )
