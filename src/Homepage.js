@@ -41,7 +41,7 @@ class Homepage extends Component {
         });
     }
 
-    get renderResults () {
+    renderResults = () => {
         let movies;
         if (this.state.movies) {
             movies = <MovieCreator movieState={this.state.movies} />
@@ -53,6 +53,7 @@ class Homepage extends Component {
         
 
     render() {
+        const renderResults = this.renderResults();
         return (
             <section className="movie-container">
                 
@@ -63,7 +64,8 @@ class Homepage extends Component {
                     />
 
 
-                {this.renderResults}
+                {/* {renderResults} */}
+                {this.state.movies ? <MovieCreator movieState={this.state.movies} /> : <h1>No Results</h1>}
 
             </section>
         )
