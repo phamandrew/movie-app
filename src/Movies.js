@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 
-export const MovieCreator  = ({ movieState }) => {
+const MovieCreator  = ({ movieState }) => {
 
     const movieList = movieState.map((movie) => 
          <div className="movie" key={movie.id}>
@@ -14,9 +14,20 @@ export const MovieCreator  = ({ movieState }) => {
     );
     return (
         <div>{movieList}</div>
-    )
-   
+    ) 
 };
 
+export const MovieSort = ({ movieState }) => {
+   
+        let movies;
+        if (movieState) {
+            movies = <MovieCreator movieState={movieState} />
+        }
+        //
+        return movies
 
-export default MovieCreator;
+};
+
+// {movieState ? <MovieCreator movieState={movieState} /> : <h1>No Results</h1>}
+
+export default MovieSort;

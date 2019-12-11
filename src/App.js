@@ -10,6 +10,8 @@ import {
 import { search } from './utils';
 import MovieCreator, { MovieRender } from './Movies';
 import { Link } from 'react-router-dom';
+import MovieList from './MovieList';
+import MovieSort from './Movies';
 
 // export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
 export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
@@ -71,16 +73,14 @@ class App extends Component {
     renderResults = () => {
         let movies;
         if (this.state.movies) {
-            movies = <MovieCreator movieState={this.state.movies} />
+            movies = <MovieSort movieState={this.state.movies} />
         }
         //
         return movies
     }
 
-        
-
     render() {
-        const renderResults = this.renderResults();
+        // const renderResults = this.renderResults();
         return (
             <Router>
                 <div className="app">
@@ -89,10 +89,16 @@ class App extends Component {
                         onChange={this.handleChange}
                         placeholder="Type something to search"
                     />
-                    <Route exact path="/movie/:movie_id" component={Movie} />
 
                     {/* {renderResults} */}
-                    {this.state.movies ? <MovieCreator movieState={this.state.movies} /> : <h1>No Results</h1>}
+                    {/* {this.state.movies ? <MovieCreator movieState={this.state.movies} /> : <h1>No Results</h1>} */}
+                    <Route exact path="/movie/:movie_id" component={Movie} />
+                    {/* <Route exact path="/movie/" component={MovieList} /> */}
+                    {/* <MovieList movieState={this.state.movies} /> */}
+                    {/* <MovieCreator movieState={this.state.movies} /> */}
+                    {this.renderResults()}
+                    
+                    
 
                 </div>
                 
