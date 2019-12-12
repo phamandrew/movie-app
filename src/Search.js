@@ -1,34 +1,13 @@
-// import React, { Component } from 'react';
-// import Axios from 'axios';
-// import { moviedb_api_key } from './App'
+import React, { Component } from 'react';
 
+export const Search = ({ value, onChange }) => {
+    return(
+        <input className="search"
+            value={value}
+            onChange={onChange}
+            placeholder="Type something to search"
+        />
+    )
+}
 
-
-// class Search extends Component {
-//     state = {
-//         results: null,
-//         loading: false,
-//         value: ''
-//     };
-
-//     search = async val => {
-//         this.setState ({ loading: true });
-//         const res = await Axios({
-//             url: 'https://api.themoviedb.org/3/search/movie',
-//             method: 'GET',
-//             params: {
-//                 query: val,
-//                 api_key: moviedb_api_key
-//             }
-//         })
-
-//         const movies = await res.data.results;
-
-//         this.setState({ movies, loading: false});
-
-//     }
-// }
-
-
-
-// export default Search;
+export default Search;

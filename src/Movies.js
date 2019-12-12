@@ -17,17 +17,17 @@ const MovieCreator  = ({ movieState }) => {
     ) 
 };
 
-export const MovieSort = ({ movieState }) => {
+// export const MovieSort = ({ movieState }) => {
    
-        let movies;
-        if (movieState) {
-            movies = <MovieCreator movieState={movieState} />
-        }
-        //
-        return movies
+//         let movies;
+//         if (movieState) {
+//             movies = <MovieCreator movieState={movieState} />
+//         }
+//         //
+//         return movies
 
-};
+// };
 
 // {movieState ? <MovieCreator movieState={movieState} /> : <h1>No Results</h1>}
 
-export default MovieSort;
+export default MovieCreator;
