@@ -20,23 +20,6 @@ import Search from './Search';
 export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
 
 
-// class App extends Component {
-//     render() {
-//         return (
-//             <Router>
-
-//                 <div className="App">
-//                     <header className="App-header">
-//                         <h1>Movies!</h1>
-//                     </header> 
-//                     <Route exact path="/" component={Homepage} />
-//                     <Route exact path="/movie/:movie_id" component={Movie} />
-//                 </div>
-//             </Router>
-//         );
-//     }
-// }
-
 class App extends Component {
     constructor() {
         super();
@@ -62,11 +45,7 @@ class App extends Component {
             loading: true
         })
 
-         
-      
-
         const res = await search(`https://api.themoviedb.org/3/search/movie?query=${val}&api_key=${moviedb_api_key}`)
-
 
         this.setState({ 
             movies: res,
@@ -74,41 +53,23 @@ class App extends Component {
         });
     }
 
-    renderResults = () => {
-        let movies;
-        if (this.state.movies) {
-            movies = <MovieSort movieState={this.state.movies} />
-        }
-        //
-        return movies
-    }
+
 
     render() {
         // const renderResults = this.renderResults();
         return (
             <Router>
                 <div className="app">
-                    {/* <input
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                        placeholder="Type something to search"
-                    /> */}
-
-                    {/* <Search value={this.state.value} onChange={this.handleChange} /> */}
-
-                    {/* {renderResults} */}
-
                     <Switch>
-
-                        <Route exact path="/search"  render={() => <Search value={this.state.value} onChange={this.handleChange} />} />
-
+                        <Route exact path="/search"  render={() => <Search movieState={this.state.movies} onChange={this.handleChange} />} />
                         <Route exact path="/movie/:movie_id" component={Movie} />
                     </Switch>
 
+                    {/* <Search movieState={this.state.movies} onChange={this.handleChange} /> */}
+{/* 
                     <div className="movie-list">
-                        {this.state.movies ? <MovieCreator movieState={this.state.movies} /> : <h1>No Results</h1>}
-
-                    </div>
+                        {this.state.movies ? <MovieCreator movieState={this.state.movies} /> : null}
+                    </div> */}
                     {/* <Route exact path="/movie/" component={MovieList} /> */}
                     {/* <MovieList movieState={this.state.movies} /> */}
                     {/* <MovieCreator movieState={this.state.movies} /> */}
