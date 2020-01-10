@@ -8,14 +8,13 @@ export const MovieList  = ({ movieState }) => {
         if (movieState) {
             movies = <MovieCreator movieState={movieState} />
         }
-        //
+
         return movies
     }
     
     return (
        <div>{this.renderResults()}</div>
     )
-   
 };
 
 export default MovieList
