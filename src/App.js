@@ -19,6 +19,7 @@ import Search from './Search';
 import NowPlaying from './NowPlaying';
 import TopRated from './TopRated';
 import Popular from './Popular';
+import Collections from './Collections';
 
 
 export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
@@ -79,14 +80,25 @@ class App extends Component {
                             <li>
                                 <NavLink to="/popular">Popular</NavLink>
                             </li>
+                            <li>
+                                <NavLink to="/upcoming">Upcoming</NavLink>
+                            </li>
                         </ul>
                     </nav>
                     <Switch>
                         <Route exact path="/"  render={() => <Search movieState={this.state.movies} onChange={this.handleChange} />} />
                         <Route exact path="/movie/:movie_id" component={Movie} />
-                        <Route exact path="/now-playing" component={NowPlaying} />
-                        <Route exact path="/top-rated" component={TopRated} />
-                        <Route exact path="/popular" component={Popular} />
+
+                        <Route exact path="/now-playing"  render={() => <Collections collection={"now_playing"}  />} />
+                        {/* <Route exact path="/now-playing" component={NowPlaying} /> */}
+
+                        <Route exact path="/top-rated"  render={() => <Collections collection={"top_rated"}  />} />
+                        {/* <Route exact path="/top-rated" component={TopRated} /> */}
+
+                        <Route exact path="/popular"  render={() => <Collections collection={"popular"}  />} />
+                        {/* <Route exact path="/popular" component={Popular} /> */}
+
+                        <Route exact path="/upcoming"  render={() => <Collections collection={"upcoming"}  />} />
 
                     </Switch>
 
