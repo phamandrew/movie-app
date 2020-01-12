@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
-import Homepage from './Homepage';
+import './App.scss';
+// import Homepage from './Homepage';
 import Movie from './Movie';
 import { 
     BrowserRouter as Router,
     Route,
-    Switch
+    Switch,
+    NavLink
 
 } from 'react-router-dom';
 
 import { search } from './utils';
-import MovieCreator, { MovieRender } from './Movies';
+import MovieCreator from './Movies';
+import MovieList from './Movies';
 import { Link } from 'react-router-dom';
-import MovieList from './MovieList';
-import MovieSort from './Movies';
+// import MovieList from './MovieList';
 import Search from './Search';
+import NowPlaying from './NowPlaying';
 
 // export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
 export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
@@ -60,22 +62,21 @@ class App extends Component {
         return (
             <Router>
                 <div className="app">
+                    <nav>
+                        <ul>
+                            <li>
+                                <NavLink to="/">Search</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/now-playing">Now Playing</NavLink>
+                            </li>
+                        </ul>
+                    </nav>
                     <Switch>
-                        <Route exact path="/search"  render={() => <Search movieState={this.state.movies} onChange={this.handleChange} />} />
+                        <Route exact path="/"  render={() => <Search movieState={this.state.movies} onChange={this.handleChange} />} />
                         <Route exact path="/movie/:movie_id" component={Movie} />
+                        <Route exact path="/now-playing" component={NowPlaying} />
                     </Switch>
-
-                    {/* <Search movieState={this.state.movies} onChange={this.handleChange} /> */}
-{/* 
-                    <div className="movie-list">
-                        {this.state.movies ? <MovieCreator movieState={this.state.movies} /> : null}
-                    </div> */}
-                    {/* <Route exact path="/movie/" component={MovieList} /> */}
-                    {/* <MovieList movieState={this.state.movies} /> */}
-                    {/* <MovieCreator movieState={this.state.movies} /> */}
-                    {/* {this.renderResults()} */}
-                    
-                    
 
                 </div>
                 

@@ -1,8 +1,6 @@
 import Axios from 'axios';
 
 
-
-
 const createRequest = () => {
     let cancel;
 
@@ -19,10 +17,8 @@ const createRequest = () => {
         
         try {
 
-
             const res = await Axios(query, {cancelToken: cancel.token})
             const result = res.data.results;
-
 
             return result;
 

@@ -1,76 +1,76 @@
-import React, { Component } from 'react';
-import Axios from 'axios';
-import { Link } from 'react-router-dom';
-import { moviedb_api_key } from './App';
-import { search } from './utils';
-import MovieCreator, { MovieRender } from './Movies';
+// import React, { Component } from 'react';
+// import Axios from 'axios';
+// import { Link } from 'react-router-dom';
+// import { moviedb_api_key } from './App';
+// import { search } from './utils';
+// import MovieCreator, { MovieRender } from './Movies';
 
-class Homepage extends Component {
-    constructor() {
-        super();
-        this.state = {
-            movies: [],
-            loading: false,
-            value: ''
-        }
-        this.handleChange = this.handleChange.bind(this)
-        this.searchRequest = this.searchRequest.bind(this)
+// class Homepage extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             movies: [],
+//             loading: false,
+//             value: ''
+//         }
+//         this.handleChange = this.handleChange.bind(this)
+//         this.searchRequest = this.searchRequest.bind(this)
 
-    }
+//     }
    
 
-    handleChange = async e => {
-        this.setState({value: e.target.value});
-        this.searchRequest(e.target.value);
-    }
+//     handleChange = async e => {
+//         this.setState({value: e.target.value});
+//         this.searchRequest(e.target.value);
+//     }
     
-    searchRequest = async val =>  {
-        this.setState({
-            loading: true
-        })
+//     searchRequest = async val =>  {
+//         this.setState({
+//             loading: true
+//         })
 
          
       
 
-        const res = await search(`https://api.themoviedb.org/3/search/movie?query=${val}&api_key=${moviedb_api_key}`)
+//         const res = await search(`https://api.themoviedb.org/3/search/movie?query=${val}&api_key=${moviedb_api_key}`)
 
 
-        this.setState({ 
-            movies: res,
-            loading: false 
-        });
-    }
+//         this.setState({ 
+//             movies: res,
+//             loading: false 
+//         });
+//     }
 
-    renderResults = () => {
-        let movies;
-        if (this.state.movies) {
-            movies = <MovieCreator movieState={this.state.movies} />
-        }
-        //
-        return movies
-    }
+//     renderResults = () => {
+//         let movies;
+//         if (this.state.movies) {
+//             movies = <MovieCreator movieState={this.state.movies} />
+//         }
+//         //
+//         return movies
+//     }
 
         
 
-    render() {
-        const renderResults = this.renderResults();
-        return (
-            <section className="movie-container">
+//     render() {
+//         const renderResults = this.renderResults();
+//         return (
+//             <section className="movie-container">
                 
-                    <input
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                        placeholder="Type something to search"
-                    />
+//                     <input
+//                         value={this.state.value}
+//                         onChange={this.handleChange}
+//                         placeholder="Type something to search"
+//                     />
 
 
-                {/* {renderResults} */}
-                {this.state.movies ? <MovieCreator movieState={this.state.movies} /> : <h1>No Results</h1>}
+//                 {/* {renderResults} */}
+//                 {this.state.movies ? <MovieCreator movieState={this.state.movies} /> : <h1>No Results</h1>}
 
-            </section>
-        )
-    }
-}
+//             </section>
+//         )
+//     }
+// }
 
-export default Homepage;
+// export default Homepage;
 

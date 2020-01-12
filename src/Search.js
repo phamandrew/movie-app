@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MovieCreator from './Movies'
 
-export const Search = ({ value, onChange, movieState }) => {
+const Search = ({ value, onChange, movieState }) => {
     return(
         <div className="search">
 
@@ -10,9 +10,9 @@ export const Search = ({ value, onChange, movieState }) => {
                 onChange={onChange}
                 placeholder="Type something to search"
             />
-            <div className="movie-list">
+            {/* <section className="movie-container"> */}
                 {movieState ? <MovieCreator movieState={movieState} /> : null}
-            </div>
+            {/* </section> */}
         </div>
     )
 }
