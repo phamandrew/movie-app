@@ -17,9 +17,12 @@ import { Link } from 'react-router-dom';
 // import MovieList from './MovieList';
 import Search from './Search';
 import NowPlaying from './NowPlaying';
+import TopRated from './TopRated';
+import Popular from './Popular';
 
-// export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
-export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
+
+export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
+// export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
 
 
 class App extends Component {
@@ -30,8 +33,8 @@ class App extends Component {
             loading: false,
             value: ''
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.searchRequest = this.searchRequest.bind(this)
+        // this.handleChange = this.handleChange.bind(this)
+        // this.searchRequest = this.searchRequest.bind(this)
 
     }
    
@@ -70,12 +73,21 @@ class App extends Component {
                             <li>
                                 <NavLink to="/now-playing">Now Playing</NavLink>
                             </li>
+                            <li>
+                                <NavLink to="/top-rated">Top Rated</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/popular">Popular</NavLink>
+                            </li>
                         </ul>
                     </nav>
                     <Switch>
                         <Route exact path="/"  render={() => <Search movieState={this.state.movies} onChange={this.handleChange} />} />
                         <Route exact path="/movie/:movie_id" component={Movie} />
                         <Route exact path="/now-playing" component={NowPlaying} />
+                        <Route exact path="/top-rated" component={TopRated} />
+                        <Route exact path="/popular" component={Popular} />
+
                     </Switch>
 
                 </div>

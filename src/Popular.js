@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { moviedb_api_key } from './App';
 
 
-class NowPlaying extends Component {
+class Popular extends Component {
     constructor() {
         super();
         this.state = {
@@ -14,7 +14,7 @@ class NowPlaying extends Component {
     }
     componentDidMount() {
         Axios({
-            url: 'https://api.themoviedb.org/3/movie/now_playing',
+            url: 'https://api.themoviedb.org/3/movie/popular',
             method: 'GET',
             params: {
                 api_key: moviedb_api_key
@@ -44,4 +44,4 @@ class NowPlaying extends Component {
     }
 }
 
-export default NowPlaying;
+export default Popular;
