@@ -10,9 +10,9 @@ const Search = ({ value, onChange, movieState }) => {
                 onChange={onChange}
                 placeholder="Type something to search"
             />
-            {/* <section className="movie-container"> */}
-                {movieState ? <MovieCreator movieState={movieState} /> : null}
-            {/* </section> */}
+         
+            {movieState ? <MovieCreator movieState={movieState} /> : null}
+            
         </div>
     )
 }

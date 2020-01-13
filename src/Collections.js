@@ -26,19 +26,22 @@ class Collections extends Component {
             });
         });
     }
-    componentDidUpdate() {
-        Axios({
-            url: `https://api.themoviedb.org/3/movie/${this.props.collection}`,
-            method: 'GET',
-            params: {
-                api_key: moviedb_api_key
-            }
-        })
-        .then((res) => {
-            this.setState({
-                movies: res.data.results
+    componentDidUpdate(prevProps) {
+        if (this.props.collection !== prevProps.collection) {
+            Axios({
+                url: `https://api.themoviedb.org/3/movie/${this.props.collection}`,
+                method: 'GET',
+                params: {
+                    api_key: moviedb_api_key
+                }
+            })
+            .then((res) => {
+                this.setState({
+                    movies: res.data.results
+                });
             });
-        });
+
+        }
     }
     render() {
         return (

@@ -16,9 +16,6 @@ import MovieList from './Movies';
 import { Link } from 'react-router-dom';
 // import MovieList from './MovieList';
 import Search from './Search';
-import NowPlaying from './NowPlaying';
-import TopRated from './TopRated';
-import Popular from './Popular';
 import Collections from './Collections';
 
 

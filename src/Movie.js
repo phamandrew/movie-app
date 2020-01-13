@@ -29,6 +29,8 @@ class Movie extends Component {
             <div>
                 <img src={`https://image.tmdb.org/t/p/w500/${this.state.movie.poster_path}`}/>
                 <h1>{this.state.movie.original_title}</h1>
+                <h2>{this.state.movie.tagline}</h2>
+                <h2>Rating: {this.state.movie.vote_average}</h2>
                 <p>{this.state.movie.overview}</p>
             </div>
         )
