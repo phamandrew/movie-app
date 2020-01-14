@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { moviedb_api_key } from './App';
+import { MovieCreator } from './Movies';
 
 
 class Collections extends Component {
@@ -60,7 +61,9 @@ class Collections extends Component {
         return (
             <section className="movies">
                 <h1>{this.renderHeader()}</h1>
-                <div className="movie-container">
+
+                <MovieCreator movieState={this.state.movies} />
+                {/* <div className="movie-container">
                     {this.state.movies.map((movie) => {
                         return (
                             // <div className="movie" key={movie.id}>
@@ -71,7 +74,7 @@ class Collections extends Component {
                             // </div>
                         )
                     })}
-                </div>
+                </div> */}
             </section>
         )
     }
