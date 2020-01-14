@@ -87,13 +87,10 @@ class App extends Component {
                         <Route exact path="/movie/:movie_id" component={Movie} />
 
                         <Route exact path="/now-playing"  render={() => <Collections collection={"now_playing"}  />} />
-                        {/* <Route exact path="/now-playing" component={NowPlaying} /> */}
 
                         <Route exact path="/top-rated"  render={() => <Collections collection={"top_rated"}  />} />
-                        {/* <Route exact path="/top-rated" component={TopRated} /> */}
 
                         <Route exact path="/popular"  render={() => <Collections collection={"popular"}  />} />
-                        {/* <Route exact path="/popular" component={Popular} /> */}
 
                         <Route exact path="/upcoming"  render={() => <Collections collection={"upcoming"}  />} />
 

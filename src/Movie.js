@@ -26,11 +26,13 @@ class Movie extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="movie-id">
+                {/* <a onClick={history.back()}>Back</a> */}
                 <img src={`https://image.tmdb.org/t/p/w500/${this.state.movie.poster_path}`}/>
                 <h1>{this.state.movie.original_title}</h1>
                 <h2>{this.state.movie.tagline}</h2>
-                <h2>Rating: {this.state.movie.vote_average}</h2>
+                {/* <h2>{this.state.movie.release_date}</h2> */}
+                <h3>Avg Rating: {this.state.movie.vote_average}</h3>
                 <p>{this.state.movie.overview}</p>
             </div>
         )

@@ -43,19 +43,35 @@ class Collections extends Component {
 
         }
     }
+    renderHeader(){
+        if (this.props.collection === "now_playing") {
+            return "Now Playing";
+        } else if (this.props.collection === "new_releases") {
+            return "New Releases";
+        } else if (this.props.collection === "top_rated") {
+            return "Top Rated";
+        } else if (this.props.collection === "popular") {
+            return "Popular";
+        } else if (this.props.collection === "upcoming") {
+            return "Upcoming";
+        }
+    }
     render() {
         return (
-            <section className="movie-container">
-                {this.state.movies.map((movie) => {
-                    return (
-                        <div className="movie" key={movie.id}>
-                            <Link to={`/movie/${movie.id}`}>
+            <section className="movies">
+                <h1>{this.renderHeader()}</h1>
+                <div className="movie-container">
+                    {this.state.movies.map((movie) => {
+                        return (
+                            // <div className="movie" key={movie.id}>
+                            <Link to={`/movie/${movie.id}`} className="movie" key={movie.id}>
                                 <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt=""/>
                                 <h3>{movie.original_title}</h3>
                             </Link>
-                        </div>
-                    )
-                })}
+                            // </div>
+                        )
+                    })}
+                </div>
             </section>
         )
     }
