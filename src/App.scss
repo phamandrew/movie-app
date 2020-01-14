@@ -47,16 +47,19 @@ nav {
         .movie {
             width: 24%;
             margin: 0 0.5%;
-
-
-
-
             flex-direction: column;
             display: flex;
             align-items: center;
+            opacity: 0.8;
+            transition: ease-in-out 0.2s;
+
+            &:hover {
+                opacity: 1;
+            }
 
             img {
                 width: 100%;
+                // flex: 1 0 auto;
             }
             h3 {
                 font-size: 0.9em;
