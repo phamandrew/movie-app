@@ -1,20 +1,55 @@
 
+$bg: #ff294c;
+$text-bg: #000;
+$text: #ff294c;
+$active: #fff;
+
+body {
+    background-color: $bg;
+    // color: #000;
+}
+
 nav {
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    h1 {
+        background-color: $text-bg;
+        color: $text;
+        font-size: 32px;
+        margin: 0;
+    }
+
     ul {
         display: flex;
         flex-direction: row;
         list-style: none;
         justify-content: space-between;
-
         padding: 0 24px 0 24px;
         text-decoration: none;
-        width: 50%;
+        // width: 50%;
         
 
         li {
             a {
+                font-size: 32px;
                 text-decoration: none;
+                color: $text;
+                background-color: $text-bg;
+                padding: 2px 8px;
+                transition: ease-in-out 0.2s;
+
+                &:hover {
+                    background-color: $active;
+                }
+
             }
+            .active {
+                background-color: $active;
+            }
+
         }
     }
 }
@@ -27,18 +62,35 @@ nav {
     
     h1 {
         font-size: 64px;
+        background-color: $text-bg;
+        color: $text;
+        padding: 4px 12px;
     }
 
     .search {
-        width: 25%;
+        width: 50%;
         height: 50px;
-        border-radius: 5px;
-        border: 2px solid gainsboro;
-        font-size: 35px;
-        padding: 0 24px;
-        margin-bottom: 32px;
-    }
+        font-weight: 700;
+        // border-radius: 5px;
+        // border: 2px solid gainsboro;
+        background-color: $text-bg;
+        border: 2px solid $text-bg;
+        font-size: 64px;
+        padding: 14px 32px;
+        margin: 53px 0;
+        color: $text;
 
+
+    
+    }
+    .search::placeholder {
+        color: $text
+    }
+    .search:focus {
+        outline: none !important;
+        border: 2px solid white;
+        background-color: $active;
+    }
     .movie-container {
         display: flex;
         flex-wrap: wrap;
@@ -52,9 +104,14 @@ nav {
             align-items: center;
             opacity: 0.8;
             transition: ease-in-out 0.2s;
+            text-decoration: none;
 
             &:hover {
                 opacity: 1;
+
+                h3 {
+                    background-color: #fff;
+                }
             }
 
             img {
@@ -62,7 +119,13 @@ nav {
                 // flex: 1 0 auto;
             }
             h3 {
-                font-size: 0.9em;
+                font-size: 14px;
+                background-color: $text-bg;
+                color: $text;
+                // color: #ff294c;
+                padding: 2px 4px;
+                transition: ease-in-out 0.2s;
+
                 // display: flex;
                 // flex: 1 0 auto;
             }

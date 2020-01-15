@@ -61,9 +61,10 @@ class App extends Component {
             <Router>
                 <div className="app">
                     <nav>
+                        <h1>CINESEARCH</h1>
                         <ul>
                             <li>
-                                <NavLink to="/">Search</NavLink>
+                                <NavLink exact to="/">Search</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/now-playing">Now Playing</NavLink>
