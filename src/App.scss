@@ -1,7 +1,11 @@
 
-$bg: #ff294c;
-$text-bg: #000;
-$text: #ff294c;
+// $bg: #ff294c;
+$bg: #ffe7d1;
+// $text-bg: #000;
+$text-bg: #fff;
+// $text: #ff294c;
+$text: #14464a;
+// $active: #fff;
 $active: #fff;
 
 body {
@@ -37,7 +41,7 @@ nav {
                 font-size: 32px;
                 text-decoration: none;
                 color: $text;
-                background-color: $text-bg;
+                // background-color: $text-bg;
                 padding: 2px 8px;
                 transition: ease-in-out 0.2s;
 
@@ -88,7 +92,7 @@ nav {
     }
     .search:focus {
         outline: none !important;
-        border: 2px solid white;
+        border: 2px solid $text;
         background-color: $active;
     }
     .movie-container {
@@ -120,7 +124,7 @@ nav {
             }
             h3 {
                 font-size: 14px;
-                background-color: $text-bg;
+                // background-color: $text-bg;
                 color: $text;
                 // color: #ff294c;
                 padding: 2px 4px;
