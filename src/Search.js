@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import MovieCreator from './Movies'
+// import React, { Component } from 'react';
+// import MovieCreator from './Movies'
 
-const Search = ({ value, onChange, movieState }) => {
-    return(
-        <div className="movies">
+// const Search = ({ value, onChange, movieState }) => {
+//     return(
+//         <div className="movies">
 
-            <input className="search"
-                value={value}
-                onChange={onChange}
-                placeholder="Search"
-            />
+//             <input className="search"
+//                 value={value}
+//                 onChange={onChange}
+//                 placeholder="Search"
+//             />
          
-            {movieState ? <MovieCreator movieState={movieState} /> : null}
+//             {movieState ? <MovieCreator movieState={movieState} /> : null}
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default Search;
+// export default Search;

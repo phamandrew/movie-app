@@ -15,7 +15,7 @@ import MovieCreator from './Movies';
 import MovieList from './Movies';
 import { Link } from 'react-router-dom';
 // import MovieList from './MovieList';
-import Search from './Search';
+import Search from './Search2';
 import Collections from './Collections';
 
 
@@ -26,37 +26,9 @@ export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
 class App extends Component {
     constructor() {
         super();
-        this.state = {
-            movies: [],
-            loading: false,
-            value: ''
-        }
     }
    
-
-    handleChange = async e => {
-        this.setState({value: e.target.value});
-        this.searchRequest(e.target.value);
-        console.log("CHANGING");
-    }
-    
-    searchRequest = async val =>  {
-        this.setState({
-            loading: true
-        })
-
-        const res = await search(`https://api.themoviedb.org/3/search/movie?query=${val}&api_key=${moviedb_api_key}`)
-
-        this.setState({ 
-            movies: res,
-            loading: false 
-        });
-    }
-
-
-
     render() {
-        // const renderResults = this.renderResults();
         return (
             <Router>
                 <div className="app">
@@ -81,7 +53,8 @@ class App extends Component {
                         </ul>
                     </nav>
                     <Switch>
-                        <Route exact path="/"  render={() => <Search movieState={this.state.movies} onChange={this.handleChange} />} />
+                        <Route exact path="/" component={Search} />
+
                         <Route exact path="/movie/:movie_id" component={Movie} />
 
                         <Route exact path="/now-playing"  render={() => <Collections collection={"now_playing"}  />} />
@@ -95,8 +68,6 @@ class App extends Component {
                     </Switch>
 
                 </div>
-                
-
             </Router>
         )
     }
