@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
 import './App.scss';
-// import Homepage from './Homepage';
 import Movie from './Movie';
 import { 
     BrowserRouter as Router,
     Route,
     Switch,
     NavLink
-
 } from 'react-router-dom';
 
-import { search } from './utils';
-import MovieCreator from './Movies';
-import MovieList from './Movies';
-import { Link } from 'react-router-dom';
-// import MovieList from './MovieList';
-import Search from './Search2';
+import SearchLogo from './manga.jpg'
+// import { ReactComponent as SearchLogo } from './search-solid.svg';
+// import SearchLogo from '../search-solid.svg';
+import Search from './Search';
 import Collections from './Collections';
-
 
 // export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
 export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
-
+ console.log(SearchLogo);
 
 class App extends Component {
     constructor() {
@@ -33,7 +28,12 @@ class App extends Component {
             <Router>
                 <div className="app">
                     <nav>
-                        <h1>CINESEARCH</h1>
+                        <ul>
+                            <li>
+                                <NavLink exact to="/" className="logo">CINÉSEARCH </NavLink>
+                                <img src={SearchLogo} alt="Search Icon"/>
+                            </li>
+                        </ul>
                         <ul>
                             <li>
                                 <NavLink exact to="/">Search</NavLink>
