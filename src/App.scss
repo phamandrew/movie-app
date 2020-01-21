@@ -1,23 +1,13 @@
 
 @import url('https://fonts.googleapis.com/css?family=Major+Mono+Display|Overpass+Mono&display=swap');
 
+@import './partials/variables';
 
 
-$bg: #ffe7d1;
-
-$text-bg: #F5F5F5;
-
-$text: #14464a;
-
-$active: #fff;
-
-$major-font: 'Major Mono Display', monospace;
-$overpass-font: 'Overpass Mono', monospace;
 
 
 body {
     background-color: $bg;
-    // color: #000;
     font-family: $overpass-font;
 }
 
@@ -39,7 +29,6 @@ nav {
 
 
         img {
-            color: #14464a;
             width: 28px;
             padding-left: 10px;
         }
@@ -143,7 +132,7 @@ nav {
                 opacity: 1;
 
                 h3 {
-                    background-color: #fff;
+                    background-color: $text-bg;
                 }
             }
 
