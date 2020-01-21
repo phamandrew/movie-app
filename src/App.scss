@@ -27,11 +27,22 @@ nav {
     justify-content: space-between;
     margin: 0 auto;
 
-    h1 {
-        background-color: $text-bg;
-        color: $text;
+
+    .logo {
+
+        font-family: $major-font;
+        margin: 14px 0;
         font-size: 32px;
-        margin: 0;
+        text-decoration: none;
+        color: $text;
+
+
+
+        img {
+            color: #14464a;
+            width: 28px;
+            padding-left: 10px;
+        }
     }
 
     ul {
@@ -41,27 +52,30 @@ nav {
         justify-content: space-between;
         padding: 0 24px 0 24px;
         text-decoration: none;
+        width: 60%;
         // width: 50%;
         
 
         li {
 
-            .logo {
-
-                font-family: $major-font;
-                font-weight: 32px;
-            }
+            
             a {
-                font-size: 24px;
+                font-size: 22px;
                 text-decoration: none;
                 color: $text;
                 // background-color: $text-bg;
-                padding: 2px 8px;
+                padding: 2px 6px;
                 transition: ease-in-out 0.2s;
 
 
                 &:hover {
                     background-color: $active;
+                }
+
+                img {
+                    color: #14464a;
+                    width: 17px;
+                    padding-left: 5px;
                 }
 
             }
@@ -80,25 +94,25 @@ nav {
     align-items: center;
     
     h1 {
-        font-size: 64px;
+        font-size: 48px;
         background-color: $text-bg;
         color: $text;
-        padding: 4px 12px;
+        padding: 0 12px;
     }
 
     .search {
         width: 50%;
-        height: 50px;
-        font-weight: 700;
+        height: 48px;
+        // font-weight: 700;
         // border-radius: 5px;
         // border: 2px solid gainsboro;
         background-color: $text-bg;
         border: 2px solid $text-bg;
-        font-size: 64px;
+        font-size: 48px;
         padding: 14px 32px;
         margin: 53px 0;
         color: $text;
-
+        font-family: $text;
 
     
     }
@@ -156,14 +170,21 @@ nav {
 .movie-id {
     display: flex;
     flex-direction: column;;
-    // justify-content: center;
-    // align-items: center;;
-    width: 60%;
+    color: $text;
+    width: 50%;
     margin: 0 auto 200px auto;
+    min-width: 640px;
+
+    h1, h2, h3, p{
+        background-color: $text-bg;
+        width: fit-content;
+        margin: 16px 0;
+        padding: 6px 12px;
+    }
 
     img {
         width: 50%;
-        margin: 0 auto;
+        margin: 32px auto;
     }
 }
 

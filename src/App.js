@@ -8,7 +8,7 @@ import {
     NavLink
 } from 'react-router-dom';
 
-import SearchLogo from './manga.jpg'
+import SearchIcon from './search-solid.svg'
 // import { ReactComponent as SearchLogo } from './search-solid.svg';
 // import SearchLogo from '../search-solid.svg';
 import Search from './Search';
@@ -16,7 +16,7 @@ import Collections from './Collections';
 
 // export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
 export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
- console.log(SearchLogo);
+//  console.log(SearchLogo);
 
 class App extends Component {
     constructor() {
@@ -28,15 +28,12 @@ class App extends Component {
             <Router>
                 <div className="app">
                     <nav>
+
+                        <NavLink exact to="/" className="logo">CINÉSEARCH<img src={SearchIcon} alt="Search Icon"/></NavLink>
+
                         <ul>
                             <li>
-                                <NavLink exact to="/" className="logo">CINÉSEARCH </NavLink>
-                                <img src={SearchLogo} alt="Search Icon"/>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <NavLink exact to="/">Search</NavLink>
+                                <NavLink exact to="/">Search<img src={SearchIcon} alt="Search Icon"/></NavLink>
                             </li>
                             <li>
                                 <NavLink to="/now-playing">Now Playing</NavLink>
