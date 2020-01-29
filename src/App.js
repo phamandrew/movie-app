@@ -33,7 +33,7 @@ class App extends Component {
 
                         <ul>
                             <li>
-                                <NavLink exact to="/">Search</NavLink>
+                                <NavLink exact to="/">Search<img src={SearchIcon} alt="Search Icon"/></NavLink>
                             </li>
                             <li>
                                 <NavLink to="/now-playing">Now Playing</NavLink>
