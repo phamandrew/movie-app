@@ -26,7 +26,11 @@ class App extends Component {
         super();
         this.state = { active: false };
     }
-   
+
+    activeFalse () {
+        this.setState({ active: false })
+    }
+    
     render() {
         return (
             <Router>
@@ -40,16 +44,16 @@ class App extends Component {
                         />
                         <ul className={this.state.active ? 'active' : null}>
                             <li>
-                                <NavLink exact to="/">Search<img src={SearchIcon} alt="Search Icon"/></NavLink>
+                                <NavLink exact to="/" onClick={() => this.activeFalse()}>Search<img src={SearchIcon} alt="Search Icon"/></NavLink>
                             </li>
                             <li>
-                                <NavLink to="/now-playing">Now Playing</NavLink>
+                                <NavLink to="/now-playing" onClick={() => this.activeFalse()}>Now Playing</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/top-rated">Top Rated</NavLink>
+                                <NavLink to="/top-rated" onClick={() => this.activeFalse()}>Top Rated</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/popular">Popular</NavLink>
+                                <NavLink to="/popular" onClick={() => this.activeFalse()}>Popular</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/upcoming">Upcoming</NavLink>
