@@ -1,6 +1,11 @@
 body {
     background-color: $bg;
     font-family: $overpass-font;
+    color: $text;
+}
+
+.hamburger {
+    display: none;
 }
 
 nav {

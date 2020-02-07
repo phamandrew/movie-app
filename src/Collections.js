@@ -57,6 +57,7 @@ class Collections extends Component {
             return "Upcoming";
         }
     }
+    
     render() {
         return (
             <section className="movies">

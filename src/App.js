@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import Hamburger from 'react-hamburgers';
+
 import './App.scss';
 import Movie from './Movie';
 import { 
@@ -8,6 +10,7 @@ import {
     NavLink
 } from 'react-router-dom';
 
+import Hamburger from 'react-hamburgers'
 import SearchIcon from './search-solid.svg'
 // import { ReactComponent as SearchLogo } from './search-solid.svg';
 // import SearchLogo from '../search-solid.svg';
@@ -21,6 +24,7 @@ export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
 class App extends Component {
     constructor() {
         super();
+        this.state = { active: false };
     }
    
     render() {
@@ -28,10 +32,13 @@ class App extends Component {
             <Router>
                 <div className="app">
                     <nav>
-
                         <NavLink exact to="/" className="logo">CINÉSEARCH<img src={SearchIcon} alt="Search Icon"/></NavLink>
-
-                        <ul>
+                        <Hamburger 
+                            active={this.state.active}
+                            type="slider"
+                            onClick={() => this.setState({ active: !this.state.active })}
+                        />
+                        <ul className={this.state.active ? 'active' : null}>
                             <li>
                                 <NavLink exact to="/">Search<img src={SearchIcon} alt="Search Icon"/></NavLink>
                             </li>
