@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import Hamburger from 'react-hamburgers';
-
 import './App.scss';
 import Movie from './Movie';
 import { 
@@ -36,7 +34,7 @@ class App extends Component {
             <Router>
                 <div className="app">
                     <nav>
-                        <NavLink exact to="/" className="logo">CINÉSEARCH<img src={SearchIcon} alt="Search Icon"/></NavLink>
+                        <NavLink exact to={`${process.env.PUBLIC_URL}/`} className="logo">CINÉSEARCH<img src={SearchIcon} alt="Search Icon"/></NavLink>
                         <Hamburger 
                             active={this.state.active}
                             type="slider"
@@ -44,34 +42,34 @@ class App extends Component {
                         />
                         <ul className={this.state.active ? 'active' : null}>
                             <li>
-                                <NavLink exact to="/" onClick={() => this.activeFalse()}>Search<img src={SearchIcon} alt="Search Icon"/></NavLink>
+                                <NavLink exact to={`${process.env.PUBLIC_URL}/`} onClick={() => this.activeFalse()}>Search<img src={SearchIcon} alt="Search Icon"/></NavLink>
                             </li>
                             <li>
-                                <NavLink to="/now-playing" onClick={() => this.activeFalse()}>Now Playing</NavLink>
+                                <NavLink to={`${process.env.PUBLIC_URL}/now-playing`} onClick={() => this.activeFalse()}>Now Playing</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/top-rated" onClick={() => this.activeFalse()}>Top Rated</NavLink>
+                                <NavLink to={`${process.env.PUBLIC_URL}/top-rated`} onClick={() => this.activeFalse()}>Top Rated</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/popular" onClick={() => this.activeFalse()}>Popular</NavLink>
+                                <NavLink to={`${process.env.PUBLIC_URL}/popular`} onClick={() => this.activeFalse()}>Popular</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/upcoming">Upcoming</NavLink>
+                                <NavLink to={`${process.env.PUBLIC_URL}/upcoming`} onClick={() => this.activeFalse()}>Upcoming</NavLink>
                             </li>
                         </ul>
                     </nav>
                     <Switch>
-                        <Route exact path="/" component={Search} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Search} />
 
-                        <Route exact path="/movie/:movie_id" component={Movie} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/movie/:movie_id`} component={Movie} />
 
-                        <Route exact path="/now-playing"  render={() => <Collections collection={"now_playing"}  />} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/now-playing`}  render={() => <Collections collection={"now_playing"}  />} />
 
-                        <Route exact path="/top-rated"  render={() => <Collections collection={"top_rated"}  />} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/top-rated`}  render={() => <Collections collection={"top_rated"}  />} />
 
-                        <Route exact path="/popular"  render={() => <Collections collection={"popular"}  />} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/popular`}  render={() => <Collections collection={"popular"}  />} />
 
-                        <Route exact path="/upcoming"  render={() => <Collections collection={"upcoming"}  />} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/upcoming`}  render={() => <Collections collection={"upcoming"}  />} />
 
                     </Switch>
 
