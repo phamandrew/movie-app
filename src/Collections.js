@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
 import { moviedb_api_key } from './App';
 import { MovieCreator } from './Movies';
 

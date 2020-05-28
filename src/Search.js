@@ -3,8 +3,8 @@ import './App.scss';
 import { search } from './utils';
 import MovieCreator from './Movies';
 
-// export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
-export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
+export const moviedb_api_key = process.env.REACT_APP_MOVIEDB_API_KEY;
+// export const moviedb_api_key = 'dbc0a6d62448554c27b6167ef7dabb1b';
 
 
 class Search extends Component {
@@ -39,9 +39,7 @@ class Search extends Component {
 
 
     render() {
-        // const renderResults = this.renderResults();
         return (
-            // <Search movieState={this.state.movies} onChange={this.handleChange} />
             <div className="movies">
 
             <input className="search"
